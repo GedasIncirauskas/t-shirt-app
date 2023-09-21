@@ -7,6 +7,7 @@ import {
   slideAnimation,
   headContentAnimation,
 } from "../config/motion";
+import { icon } from "../icon";
 
 const Home = () => {
   const snap = useSnapshot(state);
@@ -16,7 +17,7 @@ const Home = () => {
         <motion.section className="home" {...slideAnimation("left")}>
           <motion.header {...slideAnimation("down")}>
             <img
-              src="./threejs.png"
+              src={icon.logo}
               alt="Logo"
               className="w-8 h-8 object-contain"
             />
