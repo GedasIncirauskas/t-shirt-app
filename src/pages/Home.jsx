@@ -7,6 +7,7 @@ import {
   slideAnimation,
   headContentAnimation,
 } from "../config/motion";
+import { Button } from "../components";
 import { icon } from "../icon";
 
 const Home = () => {
@@ -24,7 +25,7 @@ const Home = () => {
           </motion.header>
           <motion.div className="home-content" {...headContainerAnimation}>
             <motion.div {...headTextAnimation}>
-              <h1 className="head-text">
+              <h1 className="max-w-md text-[72px] font-bold">
                 Create your <br className="xl:block hidden" /> style
               </h1>
             </motion.div>
@@ -35,6 +36,11 @@ const Home = () => {
               <p className="max-w-md font-normal text-base text-gray-800">
                 Simple create your own style!
               </p>
+              <Button
+                type={"filled"}
+                title={"Create It"}
+                handleClick={() => (state.intro = false)}
+              />
             </motion.div>
           </motion.div>
         </motion.section>
