@@ -37,8 +37,8 @@ const Home = () => {
                 Simple create your own style!
               </p>
               <Button
-                type={"filled"}
-                title={"Create It"}
+                type="filled"
+                title="Create It"
                 handleClick={() => (state.intro = false)}
               />
             </motion.div>
