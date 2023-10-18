@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { useSnapshot } from "valtio";
 import { getContrastingColor } from "../config/helpers";
 import state from "../store";
@@ -29,3 +30,9 @@ export default function Button({ type, title, handleClick }) {
     </button>
   );
 }
+
+Button.propTypes = {
+  type: PropTypes.string,
+  title: PropTypes.string,
+  handleClick: PropTypes.func,
+};
