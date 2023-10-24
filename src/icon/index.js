@@ -1,3 +1,3 @@
 export const icon = {
-  logo: "/threejs.png",
+  logo: "/logo-1.png",
 };
