@@ -20,7 +20,7 @@ const Home = () => {
             <img
               src={icon.logo}
               alt="Logo"
-              className="w-8 h-8 object-contain"
+              className="w-32 h-16 object-contain"
             />
           </motion.header>
           <motion.div className="home-content" {...headContainerAnimation}>
@@ -33,7 +33,7 @@ const Home = () => {
               {...headContentAnimation}
               className="flex flex-col gap-4"
             >
-              <p className="max-w-md font-normal text-base text-black-800 text-[24px]">
+              <p className="max-w-md font-bold text-base text-black-800 text-[24px]">
                 Simple create your own style!
               </p>
               <Button
