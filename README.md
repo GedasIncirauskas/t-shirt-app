@@ -1,8 +1,9 @@
-# React + Vite
+# React + Vite and three.js
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+#### ThreeJS is a robust graphics library designed for the rendering and animation of 3D models.
 
-Currently, two official plugins are available:
+#### React Three Fiber is a widely used library that facilitates the integration of ThreeJS for creating 3D graphics within the React framework.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+#### TailwindCSS is a well-known CSS styling framework that follows a utility-first approach.
+
+#### Framer Motion is a highly favored library for adding dynamic animations to React websites, enhancing their visual appeal.
