@@ -1,25 +1,28 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useSnapshot } from "valtio";
+import { toast } from "react-toastify";
 
-import config from "../config/config";
 import state from "../store";
-import { download } from "../assets";
-import { downloadCanvasToImage, reader } from "../config/helpers";
+import { reader } from "../config/helpers";
 import { EditorTabs, FilterTabs, DecalTypes } from "../config/constants";
 import { fadeAnimation, slideAnimation } from "../config/motion";
 import { AIPicker, ColorPicker, Button, FilePicker, Tab } from "../components";
+import { BASE_BACKEND_URL } from "../config/constants";
 
 const Customizer = () => {
   const snap = useSnapshot(state);
+
+  const [file, setFile] = useState("");
+
+  const [prompt, setPrompt] = useState("");
+  const [generatingImg, setGeneratingImg] = useState(false);
+
   const [activeEditorTab, setActiveEditorTab] = useState("");
   const [activeFilterTab, setActiveFilterTab] = useState({
     logoShirt: true,
     stylishShirt: false,
   });
-  const [file, setFile] = useState("");
-  const [prompt, setPrompt] = useState("");
-  const [generatingImg, setGeneratingImg] = useState(false);
 
   const generateTabContent = () => {
     switch (activeEditorTab) {
@@ -47,7 +50,7 @@ const Customizer = () => {
     try {
       setGeneratingImg(true);
 
-      const response = await fetch("http://localhost:8080/api/v1/dalle", {
+      const response = await fetch(BASE_BACKEND_URL, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -59,9 +62,18 @@ const Customizer = () => {
 
       const data = await response.json();
 
-      handleDecals(type, `data:image/png;base64,${data.photo}`);
+      handleDecals(type, `data:image/png;base64,${data?.photo}`);
     } catch (error) {
-      alert(error);
+      toast.error("Something went wrong!", {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
     } finally {
       setGeneratingImg(false);
       setActiveEditorTab("");
@@ -139,6 +151,7 @@ const Customizer = () => {
               type="filled"
               title="Go Back"
               handleClick={() => (state.intro = true)}
+              customStyles="w-fit px-4 py-2.5 font-bold text-sm"
             />
           </motion.div>
 
